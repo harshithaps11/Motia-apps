@@ -1,0 +1,41 @@
+[
+  {
+    "id": "hello-world-flow",
+    "config": {
+      "src/hello/process-greeting.step.ts": {
+        "x": 409,
+        "y": 44
+      },
+      "src/hello/hello-api.step.ts": {
+        "x": 0,
+        "y": 0,
+        "sourceHandlePosition": "right"
+      }
+    }
+  },
+  {
+    "id": "task-management",
+    "config": {
+      "src/tasks/delete-task.step.ts": {
+        "x": -181,
+        "y": 254
+      },
+      "src/tasks/get-tasks.step.ts": {
+        "x": -707,
+        "y": 270
+      },
+      "src/tasks/update-task.step.ts": {
+        "x": -431,
+        "y": 261
+      },
+      "src/tasks/get-task-by-id.step.ts": {
+        "x": 67,
+        "y": 252
+      },
+      "src/tasks/create-task.step.ts": {
+        "x": 346,
+        "y": 210
+      }
+    }
+  }
+]
