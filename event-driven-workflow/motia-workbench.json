@@ -1,0 +1,41 @@
+[
+  {
+    "id": "hello-world-flow",
+    "config": {
+      "src/hello/process-greeting.step.ts": {
+        "x": 409,
+        "y": 44
+      },
+      "src/hello/hello-api.step.ts": {
+        "x": 0,
+        "y": 0,
+        "sourceHandlePosition": "right"
+      }
+    }
+  },
+  {
+    "id": "user-registration",
+    "config": {
+      "src/users/setup-account.step.ts": {
+        "x": 692,
+        "y": -49
+      },
+      "src/users/send-welcome-email.step.ts": {
+        "x": 586,
+        "y": 294
+      },
+      "src/users/register-user.step.ts": {
+        "x": 0,
+        "y": 44
+      },
+      "src/users/log-notification.step.ts": {
+        "x": 1052,
+        "y": 135
+      },
+      "src/users/get-user-status.step.ts": {
+        "x": 37,
+        "y": 278
+      }
+    }
+  }
+]
