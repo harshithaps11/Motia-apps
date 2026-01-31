@@ -33,9 +33,11 @@ class TaskStore {
     ]
 
     sampleTasks.forEach((task) => this.tasks.set(task.id, task))
+    console.log('[TaskStore] Initialized with', this.tasks.size, 'tasks')
   }
 
   list(): Task[] {
+    console.log('[TaskStore] Listing tasks, current count:', this.tasks.size)
     return Array.from(this.tasks.values())
   }
 
@@ -51,6 +53,7 @@ class TaskStore {
       updatedAt: new Date().toISOString(),
     }
     this.tasks.set(newTask.id, newTask)
+    console.log('[TaskStore] Task created, new count:', this.tasks.size, 'task:', newTask.id)
     return newTask
   }
 
@@ -68,8 +71,24 @@ class TaskStore {
   }
 
   remove(id: string): boolean {
-    return this.tasks.delete(id)
+    const deleted = this.tasks.delete(id)
+    console.log('[TaskStore] Task deleted:', id, 'success:', deleted, 'new count:', this.tasks.size)
+    return deleted
   }
 }
 
-export const taskStore = new TaskStore()
+// Use globalThis to persist store across HMR reloads and module evaluations
+// globalThis is the standard way to access global scope in both Node.js and browsers
+const STORE_KEY = Symbol.for('motia.taskStore')
+
+// @ts-ignore - Using Symbol.for to create a global registry key
+if (!globalThis[STORE_KEY]) {
+  console.log('[TaskStore] Creating new singleton instance')
+  // @ts-ignore
+  globalThis[STORE_KEY] = new TaskStore()
+} else {
+  console.log('[TaskStore] Reusing existing instance')
+}
+
+// @ts-ignore
+export const taskStore = globalThis[STORE_KEY] as TaskStore
